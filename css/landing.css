@@ -38,6 +38,13 @@ body { background: var(--sc-canvas); }
 @media (max-width: 860px) {
   .vr-nav__links .l-hide { display: none; }
 }
+/* P1 audit visuel 04/09 : à 390 px la nav débordait, le CTA était tronqué
+   (« Faire le diagnost »). Mobile : seul le CTA reste, compacté. */
+@media (max-width: 700px) {
+  .vr-nav__links a:not(.vr-nav__cta) { display: none; }
+  .vr-nav__cta { white-space: nowrap; font-size: 0.82rem; padding: 0.5rem 0.9rem; margin-left: auto; }
+  .vr-nav__in { height: 56px; }
+}
 
 /* ---------- Hero (act pin 1) ---------- */
 .vr-hero[data-sc-stage] {
