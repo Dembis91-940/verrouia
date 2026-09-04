@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Diagnostic cyber 5 minutes — 18 questions | VerrouIA</title>
+<meta name="description" content="Répondez à 18 questions en 4 piliers (identifiants, sauvegardes, phishing, usages IA) et obtenez instantanément votre note cyber 🔴🟠🟢 et un plan d'action 30 jours. Gratuit, sans inscription.">
+<link rel="canonical" href="https://dembis91-940.github.io/verrouia/diagnostic.html">
+<meta property="og:title" content="Diagnostic cyber 5 minutes — VerrouIA">
+<meta property="og:description" content="18 questions, 4 piliers, une note 🔴🟠🟢 et un plan d'action 30 jours pour votre TPE/PME. Gratuit, sans inscription.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dembis91-940.github.io/verrouia/diagnostic.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23060A11'/%3E%3Cpath d='M22 28v-6a10 10 0 0 1 20 0v6' fill='none' stroke='%233DD68C' stroke-width='5' stroke-linecap='round'/%3E%3Crect x='16' y='28' width='32' height='24' rx='5' fill='%233DD68C'/%3E%3Ccircle cx='32' cy='39' r='4' fill='%23060A11'/%3E%3Cpath d='M32 43v6' stroke='%23060A11' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/verrouia.css">
+<script defer src="https://cloud.umami.is/script.js" data-website-id="e5abcaa5-b313-4845-a812-2038dceffb6d"></script>
+</head>
+<body>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="VerrouIA, retour à l'accueil">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M22 28v-6a10 10 0 0 1 20 0v6" fill="none" stroke="#3DD68C" stroke-width="5" stroke-linecap="round"/><rect x="16" y="28" width="32" height="24" rx="5" fill="#3DD68C"/><circle cx="32" cy="39" r="4" fill="#060A11"/><path d="M32 43v6" stroke="#060A11" stroke-width="4" stroke-linecap="round"/></svg>
+      Verrou<span class="brand-ia">IA</span>
+    </a>
+    <nav class="site-nav" aria-label="Navigation principale">
+      <a href="index.html">Accueil</a>
+      <a href="kit.html">Kit</a>
+      <a href="blog/failes-pme-2026.html" class="nav-hide-sm">Blog</a>
+      <a class="nav-cta" href="index.html#offre">Obtenir le rapport</a>
+    </nav>
+  </div>
+</header>
+
+<div class="quiz-progress no-print" id="progressbar">
+  <div class="wrap">
+    <span class="progress-pill" id="progressCount">0/18</span>
+    <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="18" aria-valuenow="0" aria-label="Progression du diagnostic"><span id="progressFill"></span></div>
+    <span class="progress-pill" id="progressPct">0 %</span>
+  </div>
+</div>
+
+<main>
+  <section class="page-hero">
+    <div class="wrap-narrow">
+      <p class="kicker" style="justify-content:center">Diagnostic gratuit · 5 minutes · sans inscription</p>
+      <h1 class="page-title">18 questions pour savoir où votre entreprise peut être attaquée.</h1>
+      <p class="page-sub">Répondez franchement : il n'y a pas de mauvaise réponse, seulement des portes ouvertes que vous ne voyez pas. Votre note 🔴🟠🟢 et votre plan d'action priorisé 30 jours sont calculés instantanément, sur votre appareil. Aucune donnée ne quitte votre navigateur.</p>
+    </div>
+  </section>
+
+  <section class="section-pad" style="padding-top:2rem" id="quiz">
+    <form id="quizForm" class="wrap-narrow" novalidate>
+      <div id="quizBody"></div>
+
+      <div style="text-align:center; margin-top:2.5rem">
+        <p id="quizError" class="alert alert-warn" style="display:none">Répondez à toutes les questions (18/18) pour obtenir votre note. Les questions sans réponse ne comptent pas dans le calcul.</p>
+        <button type="submit" class="btn btn-pri btn-lg">Voir ma note et mon plan d'action</button>
+        <p class="mono" style="font-size:.8rem;color:var(--vr-ink-faint);margin-top:1rem">Calcul 100 % local · vos réponses ne sont jamais envoyées ni stockées</p>
+      </div>
+    </form>
+  </section>
+
+  <section class="wrap-narrow" style="padding-bottom:2rem">
+    <div class="alert alert-warn" style="margin-top:1rem">
+      <span>⚠️</span>
+      <span><strong>Ce que VerrouIA n'est pas :</strong> un audit de sécurité certifié. C'est un auto-diagnostic de bonnes pratiques qui révèle vos failles les plus probables et vous donne les premiers correctifs. Pour une conformité réglementaire ou une certification (ISO 27001, Cyber Essentials), faites appel à un expert.</span>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div>
+      <p class="brand" style="margin-bottom:.6rem"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M22 28v-6a10 10 0 0 1 20 0v6" fill="none" stroke="#3DD68C" stroke-width="5" stroke-linecap="round"/><rect x="16" y="28" width="32" height="24" rx="5" fill="#3DD68C"/><circle cx="32" cy="39" r="4" fill="#060A11"/><path d="M32 43v6" stroke="#060A11" stroke-width="4" stroke-linecap="round"/></svg>Verrou<span class="brand-ia">IA</span></p>
+      <p style="max-width:34ch">L'auto-diagnostic cyber des TPE/PME françaises. 18 questions, une note, un plan d'action 30 jours.</p>
+    </div>
+    <div>
+      <h4>Produit</h4>
+      <ul>
+        <li><a href="index.html">Landing & offre</a></li>
+        <li><a href="diagnostic.html">Diagnostic gratuit</a></li>
+        <li><a href="kit.html">Kit de protection</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Ressources</h4>
+      <ul>
+        <li><a href="blog/failes-pme-2026.html">Les 5 failles de 2026</a></li>
+        <li><a href="blog/salaries-chatgpt-ai-act.html">Salariés & ChatGPT : l'AI Act</a></li>
+        <li><a href="legal/mentions-legales.html">Mentions légales & CGV</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-legal">
+    <div class="wrap">
+      <span>© 2026 VerrouIA · Demba KOITA LAHA</span>
+      <span>Auto-diagnostic de bonnes pratiques · ne remplace pas un audit par un expert</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/questions.js"></script>
+<script>
+(function () {
+  "use strict";
+  var body = document.getElementById("quizBody");
+  var answers = {};
+  var total = 0;
+  window.VERROUIA_QUESTIONS.forEach(function (p) { total += p.questions.length; });
+
+  function refreshProgress() {
+    var n = Object.keys(answers).length;
+    var pct = Math.round(n / total * 100);
+    document.getElementById("progressCount").textContent = n + "/" + total;
+    document.getElementById("progressPct").textContent = pct + " %";
+    document.getElementById("progressFill").style.width = pct + "%";
+    document.getElementById("progressbar").querySelector(".progress-bar").setAttribute("aria-valuenow", String(n));
+  }
+
+  function optionMarkup(q, opt, qi) {
+    var checked = answers[q.id] !== undefined && answers[q.id] === opt.score ? " checked" : "";
+    var sel = answers[q.id] !== undefined && answers[q.id] === opt.score ? " selected" : "";
+    return '<label class="q-opt' + sel + '">' +
+      '<input type="radio" name="' + q.id + '" value="' + opt.score + '"' + checked + '>' +
+      '<span class="opt-label">' + opt.label +
+        (opt.hint ? "<small>" + opt.hint + "</small>" : "") +
+      '</span></label>';
+  }
+
+  function build() {
+    var html = "";
+    var qNum = 0;
+    window.VERROUIA_QUESTIONS.forEach(function (p) {
+      html += '<div class="quiz-pillar" data-pillar="' + p.id + '">';
+      html += '<div class="quiz-pillar-head">';
+      html += '<span class="pillar-tag">' + p.tag + ' · ' + Math.round(p.weight * 100) + ' % de la note · ' + p.questions.length + ' questions</span>';
+      html += '<h2>' + p.name + '</h2><p>' + p.blurb + '</p></div>';
+      p.questions.forEach(function (q) {
+        qNum += 1;
+        html += '<div class="q-item" data-q="' + q.id + '">';
+        html += '<div class="q-num">Question ' + qNum + ' / ' + total + '</div>';
+        html += '<p class="q-text">' + q.text + '</p>';
+        html += '<div class="q-opts">';
+        q.options.forEach(function (opt, oi) { html += optionMarkup(q, opt, oi); });
+        html += '</div></div>';
+      });
+      html += '</div>';
+    });
+    body.innerHTML = html;
+
+    body.addEventListener("change", function (e) {
+      var t = e.target;
+      if (t.type !== "radio") return;
+      answers[t.name] = parseInt(t.value, 10);
+      // highlight sélection dans le groupe
+      var group = document.querySelectorAll('input[name="' + t.name + '"]');
+      group.forEach(function (r) {
+        r.closest(".q-opt").classList.toggle("selected", r.checked);
+      });
+      refreshProgress();
+    });
+  }
+
+  document.getElementById("quizForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    // collecte finale
+    var form = e.target;
+    var fd = new FormData(form);
+    var finalAnswers = {};
+    fd.forEach(function (v, k) { finalAnswers[k] = parseInt(v, 10); });
+    var n = Object.keys(finalAnswers).length;
+    var err = document.getElementById("quizError");
+    if (n < total) {
+      err.style.display = "block";
+      err.textContent = "Il reste " + (total - n) + " question(s) sans réponse. Complétez pour obtenir une note fiable (les questions vides ne comptent pas dans le calcul).";
+      return;
+    }
+    try {
+      localStorage.setItem("verrouia_answers_v1", JSON.stringify(finalAnswers));
+      localStorage.setItem("verrouia_ts", new Date().toISOString());
+    } catch (ex) { /* stockage indisponible : on passe par l'URL */ }
+    window.location.href = "rapport.html";
+  });
+
+  build();
+  refreshProgress();
+})();
+</script>
+</body>
+</html>

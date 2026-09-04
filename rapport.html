@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Votre note cyber et votre plan d'action 30 jours | VerrouIA</title>
+<meta name="description" content="Votre note cyber 🔴🟠🟢 calculée en 5 minutes, le détail par pilier (identifiants, sauvegardes, phishing, IA) et un plan d'action priorisé 30 jours. Rapport PDF téléchargeable.">
+<link rel="canonical" href="https://dembis91-940.github.io/verrouia/rapport.html">
+<meta property="og:title" content="Votre note cyber et votre plan d'action — VerrouIA">
+<meta property="og:description" content="Note 🔴🟠🟢, détail par pilier et plan d'action priorisé 30 jours pour votre TPE/PME.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dembis91-940.github.io/verrouia/rapport.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23060A11'/%3E%3Cpath d='M22 28v-6a10 10 0 0 1 20 0v6' fill='none' stroke='%233DD68C' stroke-width='5' stroke-linecap='round'/%3E%3Crect x='16' y='28' width='32' height='24' rx='5' fill='%233DD68C'/%3E%3Ccircle cx='32' cy='39' r='4' fill='%23060A11'/%3E%3Cpath d='M32 43v6' stroke='%23060A11' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/verrouia.css">
+<script defer src="https://cloud.umami.is/script.js" data-website-id="e5abcaa5-b313-4845-a812-2038dceffb6d"></script>
+<style>
+  .rapport-hero { text-align: center; }
+  .pillar-grid { display:grid; gap:1rem; margin:1.6rem 0; }
+  .pillar-card { background:var(--vr-surface); border:1px solid var(--vr-line); border-radius:var(--vr-radius); padding:1.2rem 1.4rem; }
+  .pillar-card .pc-top { display:flex; justify-content:space-between; align-items:baseline; gap:1rem; }
+  .pillar-card h3 { font-size:1.05rem; margin:0; }
+  .pillar-card .pc-score { font-family:var(--vr-font-display); font-size:1.6rem; font-weight:700; }
+  .pillar-card .pc-detail { font-size:.86rem; color:var(--vr-ink-soft); margin-top:.4rem; }
+  .week-block { border:1px solid var(--vr-line); border-radius:var(--vr-radius); padding:1.1rem 1.4rem; margin-bottom:1rem; background:var(--vr-surface); }
+  .week-block h3 { font-size:1.02rem; display:flex; align-items:center; gap:.7rem; margin-bottom:.6rem; }
+  .week-tag { font-family:var(--vr-font-mono); font-size:.68rem; letter-spacing:.1em; text-transform:uppercase; color:var(--vr-ink-faint); }
+  .print-note { text-align:center; font-size:.86rem; color:var(--vr-ink-faint); margin-top:1rem; }
+</style>
+</head>
+<body>
+
+<header class="site-head no-print">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="VerrouIA, retour à l'accueil">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M22 28v-6a10 10 0 0 1 20 0v6" fill="none" stroke="#3DD68C" stroke-width="5" stroke-linecap="round"/><rect x="16" y="28" width="32" height="24" rx="5" fill="#3DD68C"/><circle cx="32" cy="39" r="4" fill="#060A11"/><path d="M32 43v6" stroke="#060A11" stroke-width="4" stroke-linecap="round"/></svg>
+      Verrou<span class="brand-ia">IA</span>
+    </a>
+    <nav class="site-nav" aria-label="Navigation principale">
+      <a href="index.html">Accueil</a>
+      <a href="kit.html">Kit</a>
+      <a href="blog/failes-pme-2026.html" class="nav-hide-sm">Blog</a>
+      <a class="nav-cta" href="index.html#offre">Obtenir le rapport</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap-narrow" id="reportRoot" style="padding-top:2.6rem">
+
+  <section class="rapport-hero">
+    <p class="kicker" style="justify-content:center">Votre rapport VerrouIA</p>
+    <div class="score-face" id="scoreFace" aria-hidden="true"></div>
+    <h1 class="section-title" id="scoreVerdict"></h1>
+    <p style="color:var(--vr-ink-soft);max-width:58ch;margin:.4rem auto 0" id="scoreIntro"></p>
+  </section>
+
+  <section style="margin-top:1.8rem">
+    <div class="gauge" role="img" id="gaugeWrap" aria-label="Note cyber globale">
+      <svg viewBox="0 0 120 120">
+        <circle class="gauge-track" cx="60" cy="60" r="52" fill="none" stroke-width="11"></circle>
+        <circle class="gauge-fill" id="gaugeFill" cx="60" cy="60" r="52" fill="none" stroke-width="11" stroke-dasharray="326.7" stroke-dashoffset="326.7"></circle>
+      </svg>
+      <div class="gauge-center">
+        <div><span class="gauge-num" id="gaugeNum">0</span><span style="font-size:1.4rem;color:var(--vr-ink-soft)">/100</span></div>
+        <div class="gauge-label">Note cyber</div>
+      </div>
+    </div>
+    <p class="print-note">Rapport généré le <span id="reportDate"></span> · VerrouIA</p>
+  </section>
+
+  <section class="no-print" style="margin-top:2.2rem;text-align:center;display:flex;flex-wrap:wrap;gap:.8rem;justify-content:center">
+    <button class="btn btn-ghost" id="printBtn" type="button">⬇ Télécharger mon rapport en PDF</button>
+    <a class="btn btn-pri" id="payCta" href="#offre">Débloquer le kit complet : 29 € au lieu de 49 €</a>
+  </section>
+
+  <section style="margin-top:2.6rem">
+    <h2 class="section-title" style="font-size:1.5rem">Votre détail par pilier</h2>
+    <div class="pillar-grid" id="pillarGrid"></div>
+  </section>
+
+  <section style="margin-top:2.6rem">
+    <h2 class="section-title" style="font-size:1.5rem">Votre plan d'action priorisé 30 jours</h2>
+    <p style="color:var(--vr-ink-soft)">Chaque action indique qui la porte, le temps à prévoir et la semaine cible. Commencez par les actions marquées « critique ».</p>
+    <div id="planWeeks" style="margin-top:1.2rem"></div>
+  </section>
+
+  <section class="panel panel-glow no-print" id="offre" style="margin-top:2.8rem;text-align:center">
+    <span class="badge badge-ok" style="margin-bottom:1rem"><span class="dot"></span>Offre de lancement · prix barré 49 €</span>
+    <h2 style="font-size:1.6rem">Ne rédigez pas tout vous-même : prenez les 5 documents prêts à l'emploi.</h2>
+    <p style="color:var(--vr-ink-soft);max-width:60ch;margin:0 auto 1.2rem">Votre note et votre plan sont la carte. Le kit est la trousse : politique de mots de passe, procédure de sauvegarde 3-2-1, guide MFA & anti-phishing 2026, charte IA conforme à l'AI Act (article 50), plan d'action imprimable. Des modèles directement applicables, à faire signer et afficher.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:1.4rem;justify-content:center;align-items:center;margin-bottom:1.4rem">
+      <div><span class="price-old">49 €</span><span class="price-new">29<span class="price-eur"> €</span></span><p class="price-note" style="margin:.3rem 0 0">Paiement unique · accès immédiat</p></div>
+    </div>
+    <a class="btn btn-pri btn-lg" href="#stripe-paiement" id="stripeCta">Recevoir le rapport PDF + le kit — 29 €</a>
+    <p class="mono" style="font-size:.8rem;color:var(--vr-ink-faint);margin-top:.9rem">Garantie 14 jours : si le kit ne vous aide pas à verrouiller une seule faille, remboursement intégral.</p>
+  </section>
+
+  <section class="no-print" style="margin-top:1.6rem;display:flex;gap:.6rem;justify-content:center;flex-wrap:wrap">
+    <a href="diagnostic.html" class="btn btn-ghost">↺ Refaire le diagnostic</a>
+    <a href="kit.html" class="btn btn-ghost">Voir le détail du kit</a>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div>
+      <p class="brand" style="margin-bottom:.6rem"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M22 28v-6a10 10 0 0 1 20 0v6" fill="none" stroke="#3DD68C" stroke-width="5" stroke-linecap="round"/><rect x="16" y="28" width="32" height="24" rx="5" fill="#3DD68C"/><circle cx="32" cy="39" r="4" fill="#060A11"/><path d="M32 43v6" stroke="#060A11" stroke-width="4" stroke-linecap="round"/></svg>Verrou<span class="brand-ia">IA</span></p>
+      <p style="max-width:34ch">L'auto-diagnostic cyber des TPE/PME françaises. 18 questions, une note, un plan d'action 30 jours.</p>
+    </div>
+    <div>
+      <h4>Produit</h4>
+      <ul>
+        <li><a href="index.html">Landing & offre</a></li>
+        <li><a href="diagnostic.html">Diagnostic gratuit</a></li>
+        <li><a href="kit.html">Kit de protection</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Ressources</h4>
+      <ul>
+        <li><a href="blog/failes-pme-2026.html">Les 5 failles de 2026</a></li>
+        <li><a href="blog/salaries-chatgpt-ai-act.html">Salariés & ChatGPT : l'AI Act</a></li>
+        <li><a href="legal/mentions-legales.html">Mentions légales & CGV</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-legal">
+    <div class="wrap">
+      <span>© 2026 VerrouIA · Demba KOITA LAHA</span>
+      <span>Auto-diagnostic de bonnes pratiques · ne remplace pas un audit par un expert</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/questions.js"></script>
+<script src="js/scoring.js"></script>
+<script>
+(function () {
+  "use strict";
+
+  var PAY_URL = "https://buy.stripe.com/eVqeVfgDs821bHvcCofrW0j";
+
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+
+  var raw = null;
+  try { raw = localStorage.getItem("verrouia_answers_v1"); } catch (e) {}
+  if (!raw) { window.location.replace("diagnostic.html"); return; }
+
+  var answers;
+  try { answers = JSON.parse(raw); } catch (e) { window.location.replace("diagnostic.html"); return; }
+
+  var res = window.VERROUIA.compute(answers);
+  var plan = window.VERROUIA.buildPlan(res.pillars);
+
+  var CIRC = 326.7;
+
+  function colorHex(color) {
+    return color === "ok" ? "#3DD68C" : (color === "warn" ? "#FFB224" : "#FF5C5C");
+  }
+
+  // Gauge
+  document.getElementById("scoreFace").textContent = res.face;
+  document.getElementById("scoreVerdict").textContent = res.verdict;
+  document.getElementById("scoreIntro").textContent = "Votre note globale est de " + res.global + "/100. Voici où votre entreprise est exposée, et par quoi commencer pour vous protéger.";
+  var g = document.getElementById("gaugeNum");
+  var fill = document.getElementById("gaugeFill");
+  fill.style.stroke = colorHex(res.color);
+  var target = CIRC * (1 - res.global / 100);
+  setTimeout(function () { fill.style.strokeDashoffset = String(target); }, 120);
+  var t0 = null;
+  function animate(ts) {
+    if (!t0) t0 = ts;
+    var p = Math.min((ts - t0) / 1100, 1);
+    p = 1 - Math.pow(1 - p, 3);
+    g.textContent = Math.round(res.global * p);
+    if (p < 1) requestAnimationFrame(animate);
+  }
+  requestAnimationFrame(animate);
+  document.getElementById("reportDate").textContent = new Date().toLocaleDateString("fr-FR", { year: "numeric", month: "long", day: "numeric" });
+
+  // Piliers
+  var grid = document.getElementById("pillarGrid");
+  var colors = { ok: "#3DD68C", warn: "#FFB224", danger: "#FF5C5C" };
+  res.pillars.forEach(function (p) {
+    var c = colors[window.VERROUIA.pillColor(p.score)];
+    var el = document.createElement("div");
+    el.className = "pillar-card";
+    el.style.borderTop = "2px solid " + c;
+    el.innerHTML =
+      '<div class="pc-top"><div><span class="pillar-tag">' + esc(p.tag) + '</span><h3>' + esc(p.name) + '</h3></div>' +
+      '<span class="pc-score" style="color:' + c + '">' + p.score + '<span style="font-size:.9rem;color:var(--vr-ink-faint)">/100</span></span></div>' +
+      '<div class="pc-bar" style="height:6px;background:var(--vr-surface-3);border-radius:999px;overflow:hidden;margin-top:.7rem"><span style="display:block;height:100%;width:0%;background:' + c + ';border-radius:999px;transition:width 1s ease"></span></div>' +
+      '<p class="pc-detail">' + esc(p.blurb) + ' · ' + p.answered + '/' + p.total + ' questions renseignées</p>';
+    grid.appendChild(el);
+    setTimeout(function () { el.querySelector(".pc-bar span").style.width = p.score + "%"; }, 150);
+  });
+
+  // Plan par semaines
+  var weeks = plan.weeks;
+  if (!weeks.length) {
+    document.getElementById("planWeeks").innerHTML = '<div class="alert alert-ok">Aucune action critique détectée. Continuez à appliquer les bonnes pratiques et refaites ce diagnostic dans 6 mois.</div>';
+  } else {
+    var sevLabel = { 1: ["critique", "s1"], 2: ["important", "s2"], 3: ["vigilance", "s3"] };
+    var days = { 1: "Jours 1 à 7", 2: "Jours 8 à 14", 3: "Jours 15 à 21", 4: "Jours 22 à 30" };
+    weeks.forEach(function (w, wi) {
+      var block = document.createElement("div");
+      block.className = "week-block";
+      var h = '<h3><span class="week-tag">Semaine ' + (wi + 1) + '</span>' + days[wi + 1] + "</h3>";
+      var rows = w.map(function (a) {
+        var sv = sevLabel[a.sev] || ["vigilance", "s3"];
+        return '<div class="action-row"><div class="action-day">S' + a.week + '</div>' +
+          '<div><div class="mono" style="font-size:.74rem;color:var(--vr-ink-faint);margin-bottom:.15rem">' + esc(a.pillar) + ' · ~' + a.time + '</div>' +
+          '<div>' + esc(a.text) + '</div></div>' +
+          '<span class="action-sev ' + sv[1] + '">' + sv[0] + '</span></div>';
+      }).join("");
+      block.innerHTML = h + rows;
+      document.getElementById("planWeeks").appendChild(block);
+    });
+  }
+
+  // PDF : fenêtre d'impression dédiée, 100 % locale
+  function reportHTML() {
+    var sevLabel = { 1: "Critique", 2: "Important", 3: "Vigilance" };
+    var days = { 1: "Semaine 1 · Jours 1 à 7", 2: "Semaine 2 · Jours 8 à 14", 3: "Semaine 3 · Jours 15 à 21", 4: "Semaine 4 · Jours 22 à 30" };
+    var phtml = res.pillars.map(function (p) {
+      return "<tr><td><strong>" + esc(p.name) + "</strong><br><span style='color:#666'>" + esc(p.tag) + "</span></td><td style='font-size:20px'>" + p.score + "/100</td></tr>";
+    }).join("");
+    var whtml = weeks.map(function (w, wi) {
+      return "<h3 style='color:#0B2A1C;margin-top:18px'>" + days[wi + 1] + "</h3><table style='width:100%;border-collapse:collapse;font-size:11px'><tbody>" +
+        w.map(function (a) { return "<tr><td style='border:1px solid #ddd;padding:6px;vertical-align:top;width:18%'><strong>" + sevLabel[a.sev] + "</strong><br><span style='color:#666'>~" + esc(a.time) + "</span></td><td style='border:1px solid #ddd;padding:6px'>" + esc(a.text) + "</td></tr>"; }).join("") +
+        "</tbody></table>";
+    }).join("");
+    return '<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><title>Rapport VerrouIA</title>' +
+      "<style>body{font-family:Helvetica,Arial,sans-serif;color:#222;font-size:12px;line-height:1.5;max-width:700px;margin:0 auto}header{border-bottom:3px solid #0B2A1C;padding-bottom:10px;margin-bottom:16px}h1{margin:0;font-size:22px}table{width:100%;border-collapse:collapse;margin-top:6px}td{border:1px solid #ddd;padding:6px;vertical-align:top}h2{font-size:16px;color:#0B2A1C;margin-top:20px}h3{font-size:13px}.muted{color:#666}.big{font-size:30px;font-weight:bold}</style></head><body>" +
+      "<header><h1>Rapport VerrouIA · Auto-diagnostic cyber</h1><p class='muted'>Édité le " + new Date().toLocaleDateString("fr-FR", { year: "numeric", month: "long", day: "numeric" }) + " · VerrouIA · Demba KOITA LAHA</p></header>" +
+      "<p>Note globale : <span class='big'>" + res.global + "/100</span> " + res.face + " — " + esc(res.verdict) + "</p>" +
+      "<h2>Détail par pilier</h2><table><tbody>" + phtml + "</tbody></table>" +
+      "<h2>Plan d'action priorisé 30 jours</h2>" + whtml +
+      "<p style='margin-top:22px' class='muted'>Ce rapport est un auto-diagnostic de bonnes pratiques. Il ne remplace pas un audit de sécurité réalisé par un expert. Éditeur : VerrouIA (Demba KOITA LAHA) · Kit de protection complet : page kit du site VerrouIA.</p>" +
+      "</body></html>";
+  }
+
+  document.getElementById("printBtn").addEventListener("click", function () {
+    var w = window.open("", "_blank", "width=820,height=900");
+    if (!w) { alert("Autorisez les fenêtres pop-up pour générer le PDF, ou utilisez Imprimer depuis le menu du navigateur."); return; }
+    w.document.write(reportHTML());
+    w.document.close();
+    setTimeout(function () { w.focus(); w.print(); }, 350);
+  });
+
+  // CTA paiement
+  document.getElementById("stripeCta").href = PAY_URL;
+  document.getElementById("payCta").href = PAY_URL;
+})();
+</script>
+</body>
+</html>
